@@ -10,7 +10,7 @@ const Login = () => {
                     <input type="email" placeholder="email" />
                     <input type="password" placeholder="password" />
                     
-                    <button>Sign Up</button>
+                    <button>Sign In</button>
                 </form>
                 {/* <button>Sign Up</button> */}
                 <p>You don't have an account? Register</p>
