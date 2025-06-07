@@ -2,8 +2,8 @@ import React from "react";
 import Add from "../image/addImage.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+import { doc, setDoc  } from "firebase/firestore";
 
 
 const Register = () => {
