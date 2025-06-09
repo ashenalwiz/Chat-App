@@ -4,10 +4,16 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { doc, setDoc  } from "firebase/firestore";
-
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-const[err,setErr] = React.useState(false);
+  const[err,setErr] = React.useState(false);
+
+  const navigate = useNavigate();
+
+
+
+
 const handleSubmit = async (e) => {
     e.preventDefault();
     const displayName = e.target[0].value;
@@ -46,6 +52,10 @@ uploadTask.on(
             email,
             photoURL: downloadURL,
         });
+
+
+        await setDoc(doc(db, "userChats", res.user.uid), {});
+        navigate("/");
     });
   }
 );
@@ -82,15 +92,9 @@ uploadTask.on(
                     
                 
                 </form>
-                {/* <button>Sign Up</button> */}
+              
                 <p>You do have an account? Login</p>
-                {/* <form>
-                    <input type="text" placeholder="display Name" />
-                    <input type="email" placeholder="email" />
-                    <input type="password" placeholder="Password" />
-                    <input type="file" />
-
-                </form> */}
+                
 
             </div>
         </div>
