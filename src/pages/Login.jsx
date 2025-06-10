@@ -1,6 +1,7 @@
 import { useNavigate,Link } from "react-router-dom";
 import React, { useState }from 'react';
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 
 const Login = () => {
@@ -19,7 +20,7 @@ const handleSubmit = async (e) => {
   try{
     
     await signInWithEmailAndPassword(auth, email, password)
-    navigate("/login");
+    navigate("/");
 
   } catch(err) {
     setErr(true);
