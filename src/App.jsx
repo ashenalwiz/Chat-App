@@ -12,11 +12,11 @@ function App() {
   const {currentUser} = React.useContext(AuthContext);
   console.log("Current User:", currentUser);
 
-  const ProtectedRoute = ({}) => {
+  const ProtectedRoute = ({children}) => {
     if (!currentUser) {
       return <Navigate to="/login/"/>;
     }
-    return <Home />;
+    return children;
   }
 
   return (
